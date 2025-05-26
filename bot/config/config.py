@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     API_HASH: str
 
     USE_PROXY_FROM_FILE: bool = False
-    REF_ID: str = "bro-1197825376"
+    REF_ID: str = "bro-255092449"
 
     TAPS: list = [10, 100]
     SLEEP_BETWEEN_TAPS: list = [1, 3]
