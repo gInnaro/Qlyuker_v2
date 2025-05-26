@@ -1,13 +1,13 @@
-[![Static Badge](https://img.shields.io/badge/Telegram-Bot%20Link-Link?style=for-the-badge&logo=Telegram&logoColor=white&logoSize=auto&color=blue)](https://t.me/qlyukerbot/start?startapp=bro-1197825376)
-[![Static Badge](https://img.shields.io/badge/Telegram-Channel-Link?style=for-the-badge&logo=Telegram&logoColor=white&logoSize=auto&color=blue)](https://t.me/CyberToolz)
-
+Updated version of bot from [Cybertat1on](https://github.com/Cybertat1on/Qlyuker).
+Added functionality to customize the level of passive income, energy and clicks.
+Updated links and data dependencies.
 
 #  Bot for Qlyuker
 
 
 # 🔥🔥 PYTHON version must be 3.10 - 3.11.5 🔥🔥
 
-> README на русском языке доступно [здесь](README.md)
+> README на русском языке доступно [здесь](https://github.com/gInnaro/Qlyuker_v2/blob/bot-sklad/README.md)
 
 ## Features
 |                    Feature                    |   Supported    |
@@ -19,7 +19,7 @@
 |        Pyrogram .session file support         |       ✔️       |
 
 
-## [Settings](https://github.com/Cybertat1on/Qlyuker/blob/main/.env-example/)
+## [Settings](https://github.com/gInnaro/Qlyuker_v2/blob/bot-sklad/.env-example)
 |         Setting          |                                                                  Description                                                                   |
 |:------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------:|
 |  **API_ID / API_HASH**   |                           Data of the platform from which the Telegram session will be launched (default - android)                            |
@@ -47,7 +47,7 @@ To fast install libraries and run bot - open `run.bat` on **Windows** or `run.sh
 
 ## Prerequisites
 Before you begin, make sure you have the following installed:
-- [**Python**](https://www.python.org/downloads/release/python-3100/) **version 3.10**
+- [**Python**](https://www.python.org/downloads/release/python-3115/) **version 3.11.5**
 
 ## Proxies
 Before you start, delete everything from the `bot/config/proxies.txt` file, then enter your data. Proxies can be sent in the format:
@@ -69,9 +69,9 @@ type is the proxy type “http”, “https”, “socks4”, “socks5”.
 3. Record the `API_ID` and `API_HASH` provided after registering your application in the `.env` file.
 
 ## Installation
-You can download the [**repository**](https://github.com/Cybertat1on/Qlyuker) by cloning it to your system and installing the necessary dependencies:
+You can download the [**repository**](https://github.com/gInnaro/Qlyuker_v2) by cloning it to your system and installing the necessary dependencies:
 ```shell
-git clone https://github.com/Cybertat1on/Qlyuker.git
+git clone https://github.com/gInnaro/Qlyuker_v2.git
 cd Qlyuker
 ```
 
