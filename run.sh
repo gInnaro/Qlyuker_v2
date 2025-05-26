@@ -29,10 +29,7 @@ if [ ! -f ".env" ]; then
 else
 	echo "Skipping .env copying"
 fi
-#Обновление локального репозитория без удаления изменений
-git stash
-git pull
-git stash pop
+
 
 echo "Starting the bot..."
 python3 main.py
