@@ -1,14 +1,15 @@
-[![Static Badge](https://img.shields.io/badge/Telegram-Bot%20Link-Link?style=for-the-badge&logo=Telegram&logoColor=white&logoSize=auto&color=blue)](https://t.me/qlyukerbot/start?startapp=bro-1197825376)
-[![Static Badge](https://img.shields.io/badge/Telegram-Channel-Link?style=for-the-badge&logo=Telegram&logoColor=white&logoSize=auto&color=blue)](https://t.me/CyberToolz)
+Обновленная версия бота от [Cybertat1on](https://github.com/Cybertat1on/Qlyuker)
+Добавлен функционал настройки уровня прокачки пассивного дохода, энергии и кликов.
+Обновлены ссылки, и зависимости данных.
 
 # Бот для Qlyuker v2
 
-![start--qlyuker](https://github.com/user-attachments/assets/5c00a76b-946d-46a6-9243-06112b3dca35)
+![start--qlyuker](https://github.com/user-attachments/assets/dd59beb0-86b3-4aa7-93df-bcd547905983)
 
 
 # 🔥🔥 Используйте Python версии 3.10 - 3.11.5 🔥🔥
 
-> 🇪🇳 README in english available [[here](https://github.com/Cybertat1on/Qlyuker/blob/main/README-EN.md)]
+> 🇪🇳 README in english available [[here](https://github.com/gInnaro/Qlyuker_v2/blob/bot-sklad/README-EN.md)]
 
 ## Функционал  
 |                   Функционал                   | Поддерживается |
@@ -20,7 +21,7 @@
 |          Поддержка pyrogram .session           |       ✔️       |
 
 
-## [Настройки](https://github.com/Cybertat1on/Qlyuker/blob/main/.env-example/)
+## [Настройки](https://github.com/gInnaro/Qlyuker_v2/blob/bot-sklad/.env-example)
 |        Настройки         |                                                                                             Описание                                                                                              |
 |:------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  **API_ID / API_HASH**   |                                                        Данные платформы, с которой будет запущена сессия Telegram (по умолчанию - android)                                                        |
@@ -47,7 +48,7 @@
 
 ## Предварительные условия
 Прежде чем начать, убедитесь, что у вас установлено следующее:
-- [Python](https://www.python.org/downloads/release/python-3100/) **версии 3.11.5**
+- [Python](https://www.python.org/downloads/release/python-3115/) **версии 3.11.5**
 
 
 ## Прокси
@@ -70,9 +71,9 @@ type - это тип прокси "http", "https", "socks4", "socks5"
 3. Запишите `API_ID` и `API_HASH` в файле `.env`, предоставленные после регистрации вашего приложения.
 
 ## Установка
-Вы можете скачать [**Репозиторий**](https://github.com/Cybertat1on/Qlyuker) клонированием на вашу систему и установкой необходимых зависимостей:
+Вы можете скачать [**Репозиторий**](https://github.com/gInnaro/Qlyuker_v2) клонированием на вашу систему и установкой необходимых зависимостей:
 ```shell
-git clone https://github.com/Cybertat1on/Qlyuker.git
+git clone https://github.com/gInnaro/Qlyuker_v2.git
 cd Qlyuker
 ```
 
