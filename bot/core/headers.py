@@ -1,0 +1,16 @@
+headers = {
+    'Accept': '*/*',
+    'Onboarding': '2',
+    'TGPlatform': 'android',
+    'Locale': 'ru',
+    'Accept-Language': 'ru',
+    'Origin': 'https://qlyuker.io',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Mobile Safari/537.36',
+    'Referer': 'https://qlyuker.io/upgrades',
+    'Content-Type': 'application/json',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Dest': 'empty',
+    'Connection': 'keep-alive',
+    'Klyuk': '0110101101101100011011110110111101101011',
+}
