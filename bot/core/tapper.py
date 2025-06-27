@@ -131,7 +131,10 @@ class Tapper:
             )
             if response.status != 200:
                 response_text = await response.text()
-                logger.error(f"<cyan>{self.session_name}</cyan> | ❌ Login failed: Status={response.status}, Response={response_text}")
+                try:
+                    logger.error(f"<cyan>{self.session_name}</cyan> | ❌ Login failed: Status={response.status}, Response={response_text}")
+                except ValueError:
+                    pass
                 response.raise_for_status()
             response_json = await response.json()
             http_client.headers['Onboarding'] = '2'
@@ -146,8 +149,11 @@ class Tapper:
                 response_text = await error.response.text()
             except Exception:
                 response_text = "No response body"
-            logger.error(
-                f"<cyan>{self.session_name}</cyan> | ClientResponseError during login: Status={error.status}, Message={error.message}, Response={response_text}")
+            try:
+                logger.error(
+                    f"<cyan>{self.session_name}</cyan> | ClientResponseError during login: Status={error.status}, Message={error.message}, Response={response_text}")
+            except ValueError:
+                pass
             await asyncio.sleep(3)
             return {}
         except Exception as error:
@@ -234,8 +240,11 @@ class Tapper:
             )
             if response.status != 200:
                 response_text = await response.text()
-                logger.error(
-                    f"<cyan>{self.session_name}</cyan> | ❌ Send taps failed: Status={response.status}, Response={response_text}")
+                try:
+                    logger.error(
+                        f"<cyan>{self.session_name}</cyan> | ❌ Send taps failed: Status={response.status}, Response={response_text}")
+                except ValueError:
+                    pass
                 response.raise_for_status()
             response_json = await response.json()
             logger.info(f"<cyan>{self.session_name}</cyan> | Sent <red>{taps}</red> taps. Energy used: <red>{taps}</red>.")
@@ -245,8 +254,11 @@ class Tapper:
                 response_text = await error.response.text()
             except Exception:
                 response_text = "No response body"
-            logger.error(
-                f"<cyan>{self.session_name}</cyan> | ClientResponseError during send taps: Status={error.status}, Message={error.message}, Response={response_text}")
+            try:
+                logger.error(
+                    f"<cyan>{self.session_name}</cyan> | ClientResponseError during send taps: Status={error.status}, Message={error.message}, Response={response_text}")
+            except ValueError:
+                pass
             await asyncio.sleep(3)
             return {}
         except Exception as error:
@@ -372,8 +384,11 @@ class Tapper:
                 response_text = await error.response.text()
             except Exception:
                 response_text = "No response body"
-            logger.error(
-                f"<cyan>{self.session_name}</cyan> | ClientResponseError during check task '{task_id}': Status={error.status}, Message={error.message}, Response={response_text}")
+            try:
+                logger.error(
+                    f"<cyan>{self.session_name}</cyan> | ClientResponseError during check task '{task_id}': Status={error.status}, Message={error.message}, Response={response_text}")
+            except ValueError:
+                pass
             await asyncio.sleep(3)
             return {}
         except Exception as error:
@@ -683,7 +698,10 @@ class Tapper:
                     raise error
 
                 except Exception as error:
-                    logger.error(f"<cyan>{self.session_name}</cyan> | Unknown error: {error}")
+                    try:
+                        logger.error(f"<cyan>{self.session_name}</cyan> | Unknown error: {error}")
+                    except ValueError:
+                        pass
                     import traceback
                     traceback.print_exc()
                     await asyncio.sleep(3)
