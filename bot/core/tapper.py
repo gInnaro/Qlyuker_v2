@@ -126,15 +126,12 @@ class Tapper:
             http_client.headers['Onboarding'] = '0'
             json_data = {"startData": tg_web_data}
             response = await http_client.post(
-                url='https://api.qlyuker.io/auth/start',
+                url='https://qlyuker.sp.yandex.ru/api/auth/start',
                 json=json_data
             )
             if response.status != 200:
                 response_text = await response.text()
-                try:
-                    logger.error(f"<cyan>{self.session_name}</cyan> | ❌ Login failed: Status={response.status}, Response={response_text}")
-                except ValueError:
-                    pass
+                logger.error(f"<cyan>{self.session_name}</cyan> | ❌ Login failed: Status={response.status}, Response={response_text}")
                 response.raise_for_status()
             response_json = await response.json()
             http_client.headers['Onboarding'] = '2'
@@ -149,11 +146,8 @@ class Tapper:
                 response_text = await error.response.text()
             except Exception:
                 response_text = "No response body"
-            try:
-                logger.error(
-                    f"<cyan>{self.session_name}</cyan> | ClientResponseError during login: Status={error.status}, Message={error.message}, Response={response_text}")
-            except ValueError:
-                pass
+            logger.error(
+                f"<cyan>{self.session_name}</cyan> | ClientResponseError during login: Status={error.status}, Message={error.message}, Response={response_text}")
             await asyncio.sleep(3)
             return {}
         except Exception as error:
@@ -235,16 +229,13 @@ class Tapper:
                 "taps": taps
             }
             response = await http_client.post(
-                url='https://api.qlyuker.io/game/sync',
+                url='https://qlyuker.sp.yandex.ru/api/game/sync',
                 json=json_data
             )
             if response.status != 200:
                 response_text = await response.text()
-                try:
-                    logger.error(
-                        f"<cyan>{self.session_name}</cyan> | ❌ Send taps failed: Status={response.status}, Response={response_text}")
-                except ValueError:
-                    pass
+                logger.error(
+                    f"<cyan>{self.session_name}</cyan> | ❌ Send taps failed: Status={response.status}, Response={response_text}")
                 response.raise_for_status()
             response_json = await response.json()
             logger.info(f"<cyan>{self.session_name}</cyan> | Sent <red>{taps}</red> taps. Energy used: <red>{taps}</red>.")
@@ -254,11 +245,8 @@ class Tapper:
                 response_text = await error.response.text()
             except Exception:
                 response_text = "No response body"
-            try:
-                logger.error(
-                    f"<cyan>{self.session_name}</cyan> | ClientResponseError during send taps: Status={error.status}, Message={error.message}, Response={response_text}")
-            except ValueError:
-                pass
+            logger.error(
+                f"<cyan>{self.session_name}</cyan> | ClientResponseError during send taps: Status={error.status}, Message={error.message}, Response={response_text}")
             await asyncio.sleep(3)
             return {}
         except Exception as error:
@@ -271,11 +259,11 @@ class Tapper:
             if upgrade_id not in self.upgrades:
                 logger.error(f"<cyan>{self.session_name}</cyan> | Upgrade '{upgrade_id}' not found in upgrades data.")
                 return {}
-            http_client.headers['Referer'] = 'https://api.qlyuker.io/upgrades'
+            http_client.headers['Referer'] = 'https://qlyuker.sp.yandex.ru/upgrades'
             http_client.headers['Onboarding'] = str(self.onboarding)
             json_data = {"upgradeId": upgrade_id}
             response = await http_client.post(
-                url='https://api.qlyuker.io/upgrades/buy',
+                url='https://qlyuker.sp.yandex.ru/upgrades/buy',
                 json=json_data
             )
             if response.status != 200:
@@ -368,10 +356,10 @@ class Tapper:
 
     async def check_task(self, http_client: aiohttp.ClientSession, task_id: str) -> dict:
         try:
-            http_client.headers['Referer'] = 'https://api.qlyuker.io/tasks'
+            http_client.headers['Referer'] = 'https://qlyuker.sp.yandex.ru/tasks'
             json_data = {"taskId": task_id}
             response = await http_client.post(
-                url='https://api.qlyuker.io/tasks/check',
+                url='https://qlyuker.sp.yandex.ru/tasks/check',
                 json=json_data
             )
             if response.status != 200:
@@ -384,11 +372,8 @@ class Tapper:
                 response_text = await error.response.text()
             except Exception:
                 response_text = "No response body"
-            try:
-                logger.error(
-                    f"<cyan>{self.session_name}</cyan> | ClientResponseError during check task '{task_id}': Status={error.status}, Message={error.message}, Response={response_text}")
-            except ValueError:
-                pass
+            logger.error(
+                f"<cyan>{self.session_name}</cyan> | ClientResponseError during check task '{task_id}': Status={error.status}, Message={error.message}, Response={response_text}")
             await asyncio.sleep(3)
             return {}
         except Exception as error:
@@ -398,8 +383,8 @@ class Tapper:
 
     async def check_proxy(self, http_client: aiohttp.ClientSession, proxy: Proxy) -> None:
         try:
-            response = await http_client.get(url='https://httpbin.org/ip', timeout=aiohttp.ClientTimeout(total=5))
-            ip = (await response.json()).get('origin')
+            response = await http_client.get(url='https://api.ipify.org?format=json', timeout=aiohttp.ClientTimeout(total=5))
+            ip = (await response.json()).get('ip')
             logger.info(f"<cyan>{self.session_name}</cyan> | Proxy IP: <green>{ip}</green>")
         except Exception as error:
             logger.error(f"<cyan>{self.session_name}</cyan> | ❌ Proxy: {proxy} | Error: {error}")
@@ -698,10 +683,7 @@ class Tapper:
                     raise error
 
                 except Exception as error:
-                    try:
-                        logger.error(f"<cyan>{self.session_name}</cyan> | Unknown error: {error}")
-                    except ValueError:
-                        pass
+                    logger.error(f"<cyan>{self.session_name}</cyan> | Unknown error: {error}")
                     import traceback
                     traceback.print_exc()
                     await asyncio.sleep(3)
