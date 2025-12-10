@@ -4,6 +4,8 @@
 
 # Бот для Qlyuker v2
 
+Обновленный бот для прошлого Клюкера, нынешнего Улиткера.
+
 ![start--qlyuker](https://github.com/user-attachments/assets/dd59beb0-86b3-4aa7-93df-bcd547905983)
 
 
