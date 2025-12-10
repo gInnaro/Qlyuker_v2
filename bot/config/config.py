@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     API_HASH: str
 
     USE_PROXY_FROM_FILE: bool = False
-    REF_ID: str = "bro-255092449"
+    REF_ID: str = "bro-1197825376"
 
     TAPS: list = [10, 100]
     SLEEP_BETWEEN_TAPS: list = [1, 3]
@@ -27,8 +27,8 @@ class Settings(BaseSettings):
     MAX_RETRIES: int = 5
 
     ENABLE_TAPS: bool = True
-    ENABLE_UPGRADES: bool = True
-    ENABLE_TASKS: bool = True
+    ENABLE_UPGRADES: bool = False
+    ENABLE_TASKS: bool = False
 
     @property
     def MIN_TAPS(self):
